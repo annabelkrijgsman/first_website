@@ -1,0 +1,196 @@
+html {
+		margin: 0;
+		padding: 0;
+}
+
+body {
+    background: #f9f9f9;
+		font-family: 'Roboto Condensed', sans-serif;
+		font-size: 18px;
+		color: #2b2b2a;
+}
+
+.button {
+		background-color: #f9f9f9;
+    border: 1px dotted #2b2b2a;
+		border-radius: 8px;
+		font-family: 'Roboto Condensed', sans-serif;
+		font-size: 16px;
+		color: #2b2b2a;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+		margin: 10px;
+		padding: 10px;	
+}
+
+hr {
+    border-top: 1px dotted #2b2b2a;
+}
+
+/*LINKS*/
+a:link {
+		color: #2b2b2a;
+		text-decoration: none;
+}
+
+a:visited {
+		color: #000;
+		text-decoration: none;
+}
+
+a:hover {
+		color: #000;
+		text-decoration: none;
+}
+
+a:active {
+		color: #000;
+		text-decoration: none;
+}
+
+#marker {
+		list-style: circle;
+}
+
+/*HEADER*/
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+
+.top {
+    background: #fff;
+		border: 1px dotted black;
+		width: 55%;
+		margin: auto;
+}
+
+#logo {
+    margin: auto;
+    padding: 10px;
+    height: 200px;
+    width: 300px;
+}
+
+/*NAVIGATION*/
+.nav {
+    border-width: 1px 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.nav li {
+    display: inline;
+}
+
+.nav a {
+    display: inline-block;
+    padding: 10px;
+    color: #2b2b2a;
+		text-align: center;
+		font-size: 18px;
+		padding: 14px 16px;
+		text-decoration: none;
+}
+
+.nav a:hover {
+		background-color: #fff;
+}
+
+/*BODY*/
+* {
+		box-sizing: border-box;
+}
+
+.searchbox {
+		padding: 0px 10px;
+		width: 300px;
+		height: 38px;
+		font-size: 20px;
+}
+
+article {
+		float: left;
+		width: 64%;
+		padding: 10px;
+		background-color: #fff;
+		border: 1px dotted black;
+		text-align: left;
+}
+
+.artcilebox {
+		padding: 25px;
+		width: 80%;
+}
+
+aside {
+		float: right;
+		width: 34%;
+		padding: 10px;
+		background-color: #fff;
+		border: 1px dotted black;
+		text-align: center;
+}
+
+.img-circle {
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.icon {
+    height: 100px;
+    width: 100px;
+}
+
+/*SOCIAL ICONS*/
+.socialicons {
+		display: block;
+		margin: 10px;
+		padding: 10px;
+}
+
+.fa {
+		height: 50px;
+		width: 50px;
+		color: black;
+}
+
+.row:after {
+		content: "";
+		display: table;
+		clear: both;
+}
+
+/*FORMS*/
+#contactblock {
+		margin: 10px;
+		padding: 10px;
+}
+
+.form {
+		width: 100%;
+}
+
+#textfield {
+		width: 50%;
+		text-align: left;
+		margin: 10px;
+		padding: 10px;
+}
+
+/*FOOTER*/
+.bottom {
+		display: block;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		text-align: center;
+		bottom: 10px;
+}
