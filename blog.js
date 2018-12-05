@@ -1,6 +1,6 @@
 //SELECT CATEGORIES
 function selectCategory() {
     
-    document.location.href = "main.php?cat=" + document.getElementById("selectcategory").value;
+    document.location.href = "/blog/main.php?cat=" + document.getElementById("selectcategory").value;
     
 }
