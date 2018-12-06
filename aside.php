@@ -1,8 +1,29 @@
-<div class="personal">
-    <!--about me blokje + skills + social media-->
-     <img alt="" class="img-circle" widht="200px" height="230px" src="https://i.imgur.com/d0x1Ip5.jpg">
-     
-        <h2>Introduction</h2>
+<img alt="" class="img-circle" widht="200px" height="230px" src="https://i.imgur.com/d0x1Ip5.jpg">
+
+<?php
+    //SHOW BLOGGER PROFILE WHEN YOU CLICK ON THE NAME
+    $readid = 0;
+                
+    if (isset($_GET["id"])) {
+        $userid = $_GET["id"];
+    }
+    
+    if ($userid > 0) {
+        $sql = "SELECT * FROM Users WHERE ID = " . $userid;
+        $result = mysqli_query($conn, $sql);
+        $id = mysqli_fetch_assoc($result);
+        
+        $name = $id["Username"];
+        
+        foreach ($result as $row) {
+            echo "
+            <h3>" . $row['Username'] . "</a></h3>";
+        }
+    }
+    else {
+        echo 
+        //ELSE SHOW THIS
+        '<h2>Introduction</h2>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
             Aenean commodo ligula eget dolor.
             Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
@@ -33,5 +54,6 @@
                <a href="https://www.linkedin.com" target="_blank" class="fa fa-linkedin"></a>
                <a href="https://www.youtube.com" target="_blank" class="fa fa-youtube"></a>
                <a href="https://www.pinterest.com" target="_blank" class="fa fa-pinterest"></a>
-    </div>
-</div>
+    </div>';
+  }  
+?>
