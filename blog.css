@@ -65,8 +65,13 @@ a:active {
 .top {
 	background: #fff;
 	border: 1px dotted black;
-	width: 55%;
+	width: 100%;
 	margin: auto;
+}
+
+#logotext {
+	font-family: 'Press Start 2P', cursive;
+	text-align: center;
 }
 
 #logo {
@@ -74,6 +79,7 @@ a:active {
 	padding: 10px;
 	height: 200px;
 	width: 300px;
+	border-radius: 10%;
 }
 
 /*NAVIGATION*/
@@ -126,7 +132,8 @@ article {
 
 .artcilebox {
 	padding: 25px;
-	width: 80%;
+	width: 100%;
+	border: 1px dotted black;
 }
 
 table {
@@ -198,7 +205,7 @@ aside {
 	width: 100%;
 }
 
-#textfield {
+.textfield {
 	width: 50%;
 	text-align: left;
 	margin: 10px;
