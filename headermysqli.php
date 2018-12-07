@@ -11,6 +11,8 @@ session_start();
         <title>Blog</title>
         <link rel="stylesheet" type="text/css" href="blog.css" />
         <script src="blog.js"></script>
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script>tinymce.init({ selector:'textarea' });</script>
         
         <?php
             require 'mysqliconnection.php';
