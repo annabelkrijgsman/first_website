@@ -17,39 +17,34 @@ if (!isset($_SESSION['userID'])) {
             
             <h2 align="center">Edit articles</h2>
                 
-                <?php		
+                <?php
                 
-                    echo "<table>";
+                    echo '<table>';
+                    echo '<thead>';
+                    echo '<tr>';
+                    echo '<th>Username</th>';
+                    echo '<th>Title</th>';
+                    echo '<th>Post</th>';
+                    echo '<th>Date</th>';
+                    echo '<th>Action</th>';
+                    echo '</tr>';
+                    echo '</thead>';
                         
-                    echo "<thead>";
-                    echo "<tr>";
-                    echo "<th>Username</th>";
-                    echo "<th>Title</th>";
-                    echo "<th>Post</th>";
-                    echo "<th>Date</th>";
-                    echo "<th>Action</th>";
-                    echo "</tr>";
-                    echo "</thead>";
+                    $sql = "SELECT * FROM Blogposts ORDER BY date DESC";
                         
-                        $sql = "SELECT * FROM Blogposts ORDER BY date DESC";
-                        
-                        $result = mysqli_query($conn, $sql);
-                        foreach ($result as $row) {
-                    
-                            echo "<tbody>";        
-                            echo "<tr>";
-                            echo "<td>" . $row['Username'] . "</td>";
-                            echo "<td>" . $row['Title'] . "</td>";
-                            echo "<td class='post'>" . $row['Post'] . "</td>";
-                            echo "<td>" . $row['Date'] . "</td>";
-                            echo "<td><a class='button' href='editpost.php?id=" . $row["ID"] . "'>Edit</a>  <a class='button' href='loginsignup.php?id=" . $row["ID"] . "&delete=" . $row["ID"] . "'>Delete</a></td>";
-                            echo "</tr>";
-                            echo "</tbody>";
-                        
-                        }
-                    
-                    echo "</table>";
-                    echo "</table>";
+                    $result = mysqli_query($conn, $sql);
+                    foreach ($result as $row) {
+                        echo '<tbody>';
+                        echo '<tr>';
+                        echo '<td>' . $row["Username"] . '</td>';
+                        echo '<td>' . $row["Title"] . '</td>';
+                        echo '<td class="post">' . $row["Post"] . '</td>';
+                        echo '<td>' . $row["Date"] . '</td>';
+                        echo "<td><a class='button' href='editpost.php?id=" . $row["ID"] . "'>Edit</a>  <a class='button' href='loginsignup.php?id=" . $row["ID"] . "&delete=" . $row["ID"] . "'>Delete</a></td>";
+                        echo '</tr>';
+                        echo '</tbody>';                        
+                    }
+                        echo '</table>';
                     
                 ?>
 
@@ -58,7 +53,7 @@ if (!isset($_SESSION['userID'])) {
             <h2 align="center">Edit your artcile</h2>
             
                 <form method="post" id="contactblock" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                    <input type="text" id="textfield" name="newcat" placeholder="Add A new category.." value="">
+                    <input type="text" class="textfield" id="textfield" name="newcat" placeholder="Add A new category.." value="">
                                             
                         <?php
                         
