@@ -9,7 +9,7 @@
 
             <?php
                                           
-                    //READ THE ARTICLE YOU CLICKED ON - WORKS      
+                    //READ THE ARTICLE YOU CLICKED ON 
                     $readid = 0;
                 
                     if (isset($_GET["id"])) {
@@ -26,32 +26,35 @@
                         $comment = $id["Post"];
                         
                         foreach ($result as $row) {
-                            echo "<div class='artcilebox'>
-                            
-                                    <h3>" . $row['Title'] . "</a></h3>
-                                    <p>" . $row['Post'] . "</p>
-                                    <p><small>Author: <a href='readblog.php?id=" . $row["ID"] . "'>" . $row['Username'] . "</a></small></p>
-                                    <p><small>Date: " . $row['Date'] . "</small></p>
-                                    
-                                  </div><hr/>";
+                            echo '<div class="articlebox">';
+                            echo '<h3>' . $row["Title"] . '</a></h3>';
+                            echo '<p>' . $row["Post"] . '</p>';
+                            echo "<p><small>Author: <u><a href='readblog.php?id=" . $row["ID"] . "&showUser=" . $row["Username"] . "'>" . $row['Username'] . "</a></u></small></p>";
+                            echo '<p><small>Date: ' .$row["Date"] . '</small></p>';
+                            echo '</div><hr/><br/>';
                         }
                     }
 
                     //COMMENT ONLY WHEN LOGGED IN WORKS - DOESN'T SEND IT TO DATABASE AND BACK INTO THE PAGE YET
-                    if (isset($_SESSION['userID'])) {
-                        echo
-                           '<form method="post" id="contactblock" action="">
-                        
-                                <label for="comment">Leave a comment</label><br/>
-                                <textarea class="textfield" rows="10" cols="40" name="comment" placeholder="Comment.."></textarea><br/>
-                                <button type="submit" name="submitcomment" class="button">Submit</button>
+                    if (isset($_SESSION['userID']) && $_SESSION["userGroup"] > 0) {
+                        echo '<form method="post" id="contactblock" action="">';
+                        echo '<label for="uname">Username</label><br/>';
+                        echo '<input type="text" class="textfield" name="uname" placeholder="Username"><br/>';
+                        echo '<label for="comment">Leave a comment</label><br/>';
+                        echo '<textarea class="textfield" rows="10" cols="40" name="comment" placeholder="Comment.."></textarea><br/>';
                                 
-                            </form>';
+                    //ONLY SHOW ANONYMOUS OPTION WHEN LOGGED IN AS BLOGGER WORKS - DOESN'T DO ANYTHING YET        
+                    //    if ($_SESSION["userGroup"] == 1) {
+                    //        echo '<input type="checkbox" name="anonymous[]" value=' . $row["anonymous"] . '>Anonymous<br/>
+                        echo '<button type="submit" name="submitcomment" class="button">Submit</button>';
+                        echo '</form>';
+                        
+                        //}
                     }
                     else {
                         echo '<h4 style="color:red">Please login to leave a comment</h4>';
                     }
-                
+                    
             ?>
                 
         </div>
