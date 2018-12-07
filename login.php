@@ -5,10 +5,10 @@ $user_name = "root";
 $pass_word = "";
 $db = "Blog";
 
-// Create connection
+// CREATE CONNECTION
 $conn = mysqli_connect($host, $user_name, $pass_word, $db);
 
-    // Check connection
+    // CHECK CONNECTION
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
@@ -23,7 +23,7 @@ if (isset($_POST['loginsubmit'])) {
         exit();        
     }
     else {
-        $sql = "SELECT * FROM Users WHERE Username=?;";
+        $sql = "SELECT * FROM Users LEFT JOIN Users_Usergroup ON Users.ID = Users_Usergroup.UserID WHERE Username=?;";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("Location: loginsignup.php?error=sqlerror");
@@ -43,7 +43,8 @@ if (isset($_POST['loginsubmit'])) {
                 elseif ($pwdcheck == true) {
                     session_start();
                     $_SESSION['userID'] = $row['ID'];
-                    $_SESSION['userUsername'] = $row['Name'];
+                    $_SESSION['userUsername'] = $row['Username'];
+                    $_SESSION['userGroup'] = $row['GroupID'];
                     header("Location: loginsignup.php?login=succes");
                     exit();
                 }
