@@ -3,13 +3,14 @@
 <?php
     //SHOW BLOGGER PROFILE WHEN YOU CLICK ON THE NAME
     $readid = 0;
-                
-    if (isset($_GET["id"])) {
-        $userid = $_GET["id"];
+    
+    $showUser = "";           
+    if (isset($_GET["showUser"])) {
+        $showUser = $_GET["showUser"];
     }
     
-    if ($userid > 0) {
-        $sql = "SELECT * FROM Users WHERE ID = " . $userid;
+    if (strlen($showUser) > 0) {
+        $sql = "SELECT * FROM Users WHERE Username = '" . $showUser . "'";
         $result = mysqli_query($conn, $sql);
         $id = mysqli_fetch_assoc($result);
         
@@ -18,6 +19,8 @@
         foreach ($result as $row) {
             echo "
             <h3>" . $row['Username'] . "</a></h3>";
+    //WANT TO ADD AN OPTION FOR BLOGGERS TO MAKE A PROFILE THEMSELFS, WHICH WILL BE SHOWN OVER HERE. FOR NOW IT JUST SHOWS THEIR USERNAME
+    
         }
     }
     else {
